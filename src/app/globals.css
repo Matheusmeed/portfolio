@@ -1,1 +1,139 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0d0f12;
+  --color-surface: #111419;
+  --color-sunken: #0b0d10;
+  --color-stripe: #12151a;
+  --color-grid: #14171c;
+  --color-code: #1a1e24;
+  --color-divider: #1e2228;
+  --color-edge: #232830;
+  --color-edge-strong: #2a2f37;
+  --color-control: #2e333b;
+  --color-tick: #3a404a;
+  --color-fg: #eceef1;
+  --color-soft: #c9cdd3;
+  --color-muted: #a0a6af;
+  --color-faint: #8a9099;
+  --color-accent: #ff7a3d;
+  --color-accent-hover: #ff9360;
+  --color-live: #3ddc97;
+
+  --text-hero: clamp(2.75rem, 5.3vw, 4.75rem);
+  --text-hero--line-height: 0.98;
+  --text-hero--letter-spacing: -0.035em;
+
+  --text-page: clamp(2.5rem, 4.6vw, 4rem);
+  --text-page--line-height: 1.02;
+  --text-page--letter-spacing: -0.035em;
+
+  --text-h2: clamp(2rem, 3.1vw, 2.75rem);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.025em;
+
+  --text-h2-sm: clamp(1.75rem, 2.5vw, 2.25rem);
+  --text-h2-sm--line-height: 1.1;
+  --text-h2-sm--letter-spacing: -0.02em;
+
+  --text-h3: clamp(1.625rem, 2.3vw, 2rem);
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.02em;
+
+  --text-teaser: clamp(1.75rem, 3.1vw, 2.75rem);
+  --text-teaser--line-height: 1.05;
+  --text-teaser--letter-spacing: -0.025em;
+
+  --text-cta: clamp(3.5rem, 6.2vw, 5.5rem);
+  --text-cta--line-height: 0.95;
+  --text-cta--letter-spacing: -0.04em;
+
+  --text-cta-sm: clamp(2.5rem, 4.4vw, 4rem);
+  --text-cta-sm--line-height: 0.95;
+  --text-cta-sm--letter-spacing: -0.04em;
+
+  --text-lead: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+
+  --text-reading: clamp(1.0625rem, 1.35vw, 1.1875rem);
+  --text-reading--line-height: 1.65;
+
+  --text-step: clamp(1rem, 1.25vw, 1.125rem);
+  --text-step--line-height: 1.65;
+
+  --text-stat: clamp(1.375rem, 1.8vw, 1.625rem);
+  --text-stat--line-height: 1.5;
+
+  --text-metric: clamp(2.5rem, 4vw, 3.5rem);
+  --text-metric--line-height: 1;
+  --text-metric--letter-spacing: -0.02em;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@utility site-container {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 2.2vw, 2rem);
+}
+
+@utility section-y {
+  padding-block: clamp(3.5rem, 6.7vw, 6rem);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility bg-stripes {
+  background-color: var(--color-sunken);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-stripe) 0 12px,
+    var(--color-sunken) 12px 24px
+  );
+}
+
+/* Responsive grid that fits as many columns of at least N px as there is room for. */
+@utility grid-fit-* {
+  grid-template-columns: repeat(auto-fit, minmax(min(calc(--value(integer) * 1px), 100%), 1fr));
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+}

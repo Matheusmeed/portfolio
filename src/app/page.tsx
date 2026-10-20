@@ -1,8 +1,10 @@
 export default function Home() {
   return (
-    <main>
-      <h1>Matheus Medeiros</h1>
-      <p>Frontend Engineer</p>
+    <main className="site-container section-y">
+      <p className="eyebrow">Matheus Medeiros · Frontend Engineer</p>
+      <h1 className="mt-7 text-hero font-semibold text-balance">
+        From the first click to the closed deal.
+      </h1>
     </main>
   );
 }
