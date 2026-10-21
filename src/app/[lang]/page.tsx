@@ -1,3 +1,4 @@
+import { Hero } from "@/components/home/hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { dictionaries } from "@/content";
@@ -10,9 +11,8 @@ export default async function HomePage() {
   return (
     <>
       <SiteHeader locale={locale} dict={dict} path="/" isHome />
-      <main id="main" className="site-container section-y">
-        <p className="eyebrow">{dict.hero.eyebrow}</p>
-        <h1 className="mt-7 text-hero font-semibold text-balance">{dict.hero.title}</h1>
+      <main id="main">
+        <Hero dict={dict} />
       </main>
       <SiteFooter dict={dict} />
     </>
