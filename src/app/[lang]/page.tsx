@@ -1,4 +1,8 @@
+import { About } from "@/components/home/about";
+import { Contact } from "@/components/home/contact";
+import { Experience } from "@/components/home/experience";
 import { Hero } from "@/components/home/hero";
+import { Skills } from "@/components/home/skills";
 import { Work } from "@/components/home/work";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -15,6 +19,10 @@ export default async function HomePage() {
       <main id="main">
         <Hero dict={dict} />
         <Work locale={locale} dict={dict} />
+        <Experience dict={dict} />
+        <Skills dict={dict} />
+        <About dict={dict} />
+        <Contact dict={dict} />
       </main>
       <SiteFooter dict={dict} />
     </>
