@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/hero";
+import { Work } from "@/components/home/work";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { dictionaries } from "@/content";
@@ -13,6 +14,7 @@ export default async function HomePage() {
       <SiteHeader locale={locale} dict={dict} path="/" isHome />
       <main id="main">
         <Hero dict={dict} />
+        <Work locale={locale} dict={dict} />
       </main>
       <SiteFooter dict={dict} />
     </>
