@@ -1,6 +1,6 @@
-# Matheus Medeiros — Portfolio
+# Portfolio
 
-Personal site of Matheus Medeiros, frontend engineer: two case studies, experience, skills and contact, in English and Brazilian Portuguese, with an interactive 360° wireframe in the hero.
+My personal site: two case studies from my work at Elephant Skin, my experience and skills, and how to reach me, in English and Brazilian Portuguese. The hero has an interactive 360° wireframe, a nod to the 150-frame spins I build for real estate presentations.
 
 Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS 4. Every page is generated at build time.
 
