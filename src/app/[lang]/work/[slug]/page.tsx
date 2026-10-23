@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseHero } from "@/components/case/case-hero";
 import { CasePager } from "@/components/case/case-pager";
@@ -11,6 +12,7 @@ import { SiteHeader } from "@/components/site-header";
 import { caseSlugs, dictionaries } from "@/content";
 import { localizePath } from "@/lib/i18n";
 import { getLocale } from "@/lib/locale";
+import { pageMetadata } from "@/lib/metadata";
 
 type Props = PageProps<"/[lang]/work/[slug]">;
 
@@ -19,6 +21,20 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return caseSlugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const locale = await getLocale();
+  const item = dictionaries[locale].cases.find((entry) => entry.slug === slug);
+  if (!item) return {};
+
+  return pageMetadata({
+    locale,
+    path: `/work/${slug}`,
+    title: item.title,
+    description: item.summary,
+  });
 }
 
 export default async function CaseStudyPage({ params }: Props) {
